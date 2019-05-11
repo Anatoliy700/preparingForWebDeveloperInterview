@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<h3>7. Выбрать видимый div с именем red , который содержит тег span .</h3>
+<div>empty</div>
+<div><span>div and span</span></div>
+<div name="red"><span>div with class red visible</span></div>
+<div name="red" style="display: none"><span>div with class red not visible</span></div>
+
+<script>
+  $el = $('div[name=red]:visible:has(span)');
+  console.log($el)
+</script>
+</body>
+</html>

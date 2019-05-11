@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 10</title>
+</head>
+<body>
+<h3>
+    10. Написать функцию, возвращающую градус, на который указывают часовая и минутная
+    стрелки в зависимости от времени
+</h3>
+
+<script>
+  function clockDegree(timeString) {
+    'use strict';
+    const settings = {
+      deg: {
+        hour: 30,
+        minute: 6
+      },
+      format: 'hour:minute',
+      manualValues: {
+        0: 360
+      },
+      maxValue: {
+        hour: 23,
+        minute: 59
+      },
+      messageError: 'Check your time !'
+    };
+    let error = null;
+    let timeArray = timeString.split(':');
+    let degArray = timeArray.map((item, index) => {
+      if (item > getMaxValue(index)) {
+        error = settings.messageError;
+        return 0
+      }
+      if (isHour(index)) {
+        if (item > 12) {
+          item -= 12
+        }
+      }
+      let res = item * getDeg(index);
+      return settings.manualValues[res]
+        ? settings.manualValues[res]
+        : res
+    });
+
+    function getDeg(index) {
+      return settings.deg[settings.format.split(':')[index]]
+    }
+
+    function getMaxValue(index) {
+      return settings.maxValue[settings.format.split(':')[index]]
+    }
+
+    function isHour(index) {
+      return settings.format.split(':')[index] === 'hour'
+    }
+
+    return error ? error : degArray.join(':')
+  }
+
+  console.log(clockDegree('00:10'))
+  console.log(clockDegree('00:01'))
+  console.log(clockDegree('01:00'))
+  console.log(clockDegree('10:25'))
+  console.log(clockDegree('24:25'))
+  console.log(clockDegree('23:25'))
+  console.log(clockDegree('11:60'))
+  console.log(clockDegree('12:55'))
+</script>
+</body>
+</html>

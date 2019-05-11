@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 9</title>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+        integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<h3>
+    9. Написать функцию, которая уменьшает или увеличивает указанное время на заданное
+    количество минут
+</h3>
+
+<script>
+  function changeTime(time, shift) {
+    const format = 'HH:mm';
+    const mTime = moment(time, format);
+    mTime.add(shift, 'm');
+    return mTime.format(format);
+  }
+
+  console.log(changeTime('11:22', 5));
+  console.log(changeTime('23:59', '3'));
+  console.log(changeTime('00:01', -2));
+</script>
+</body>
+</html>

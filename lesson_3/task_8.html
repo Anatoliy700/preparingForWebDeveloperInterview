@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 8</title>
+</head>
+<body>
+<h3>8. Привести пример замыкания.</h3>
+
+<script>
+  function foo(param1) {
+    return function (param2) {
+      return param1 + param2
+    }
+  }
+
+  let f = foo(5);
+  console.log(f(3));
+  console.log(f(9));
+</script>
+
+</body>
+</html>
