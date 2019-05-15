@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 6</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        .three {
+            background-color: #19de50;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>
+        6. Найти все элементы div с классом one, а также все элементы p с классом two, затем
+        добавить им всем класс three и визуально плавно спустить вниз.
+    </h3>
+    <div>div not class</div>
+    <div class="one" style="display: none">div class one</div>
+    <div class="two">div class two</div>
+    <p class="one">p class one</p>
+    <p class="two" style="display: none">p class two</p>
+    <p>p not class</p>
+</div>
+<script>
+   $('div.one, p.two')
+     .addClass('three')
+     .slideDown('slow')
+
+</script>
+</body>
+</html>
